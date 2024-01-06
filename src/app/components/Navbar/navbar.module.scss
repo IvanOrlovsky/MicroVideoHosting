@@ -1,0 +1,11 @@
+.parent {
+    @apply w-screen p-5 bg-gray-700 text-yellow-400;
+}
+
+.nav_container {
+    @apply container mx-auto flex justify-between items-center;
+}
+
+.nav_links {
+    @apply text-2xl hover:text-white transition duration-300;
+}
