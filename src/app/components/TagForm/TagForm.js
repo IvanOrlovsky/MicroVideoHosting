@@ -15,7 +15,7 @@ export default function TagForm ({ onSubmit, onCancel }) {
   };
 
   return (
-    <form method="POST" onSubmit={handleSubmit} onReset={onCancel} className="bg-slate-400 mt-4 flex flex-row justify-center">
+    <form method="POST" onSubmit={handleSubmit} onReset={onCancel} className={styles.tag_form}>
       <input
         type="text"
         placeholder="Введите название тега"
@@ -23,8 +23,8 @@ export default function TagForm ({ onSubmit, onCancel }) {
         onChange={(e) => setTagName(e.target.value)}
         className="p-2 m-2"
       />
-      <button type="submit" className="p-2 m-2 bg-green-600">Добавить</button>
-      <button type="reset" className="p-2 m-2 bg-red-700">Отмена</button>
+      <button type="submit" className={styles.tag_submit}>Добавить</button>
+      <button type="reset" className={styles.tag_cancel}>Отмена</button>
     </form>
   );
 };

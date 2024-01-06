@@ -1,0 +1,11 @@
+.tag_form {
+    @apply bg-slate-400 mt-4 flex flex-row justify-center;
+}
+
+.tag_submit {
+    @apply p-2 m-2 bg-green-700;
+}
+
+.tag_cancel {
+    @apply p-2 m-2 bg-red-700;
+}
