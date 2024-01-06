@@ -2,11 +2,11 @@
 
 import { useState, useEffect} from "react";
 import Tag from "../components/Tag/tag";
+import TagForm from "../components/TagForm/TagForm";
 
 export default function Tags() {
     const [tags, setTags] = useState([]);
     const [showForm, setShowForm] = useState(false);
-    const [tagName, setTagName] = useState('');
 
     const fetchTags = async () => {
         const response = await fetch('/api/tags', { method:  'GET' }); 
@@ -14,20 +14,17 @@ export default function Tags() {
         setTags(tags)
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = async (tagName) => {
         await fetch('/api/tags', { 
             method:  'POST',
             body: JSON.stringify({ tagName }),
         }); 
         fetchTags();
         setShowForm(false);
-        setTagName('');
       };
 
     const closeForm = () => {
         setShowForm(false);
-        setTagName('');
     }
     
     useEffect(() => {
@@ -55,17 +52,7 @@ export default function Tags() {
             </div>
 
             {showForm && (
-                <form method="POST" onSubmit={handleSubmit} onReset={closeForm} className="bg-slate-400 mt-4 flex flex-row justify-center">
-                <input
-                    type="text"
-                    placeholder="Введите название тега"
-                    value={tagName}
-                    onChange={(e) => setTagName(e.target.value)}
-                    className="p-2 m-2"
-                />
-                <button type="submit" className="p-2 m-2 bg-green-600">Добавить</button>
-                <button type="reset" className="p-2 m-2 bg-red-700">Отмена</button>
-                </form>
+                 <TagForm onSubmit={handleSubmit} onCancel={closeForm} />
             )}
 
         </div>
