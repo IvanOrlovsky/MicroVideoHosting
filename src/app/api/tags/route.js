@@ -7,3 +7,9 @@ export async function GET(request) {
     return new Response(data);
     
 }
+
+export async function POST(request) {
+    const { tagName } = await request.json();
+    console.log(tagName);
+    return new Response('', { status: 200 });
+}
