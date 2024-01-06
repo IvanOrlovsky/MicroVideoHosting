@@ -14,11 +14,7 @@ export default function Tags() {
         setTags(tags)
     };
 
-    const handleSubmit = async (tagName) => {
-        await fetch('/api/tags', { 
-            method:  'POST',
-            body: JSON.stringify({ tagName }),
-        }); 
+    const handleSubmit = async () => {
         fetchTags();
         setShowForm(false);
       };

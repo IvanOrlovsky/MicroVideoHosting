@@ -5,8 +5,12 @@ import React, { useState } from 'react';
 export default function TagForm ({ onSubmit, onCancel }) {
   const [tagName, setTagName] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    await fetch('/api/tags', { 
+        method:  'POST',
+        body: JSON.stringify({ tagName }),
+    }); 
     onSubmit(tagName);
   };
 
