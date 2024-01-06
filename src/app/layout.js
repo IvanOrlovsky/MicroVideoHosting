@@ -4,14 +4,6 @@ import Navbar from './components/Navbar/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
-  title: 'Микровидеохостинг',
-  description: 'Тестовое задание на создание макета видеохостинга',
-  author: 'Иван Орловский',
-  keywords: 'микровидеохостинг, видеохостинг, теги, веб-приложение',
-  language: 'ru-RU' 
-}
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
