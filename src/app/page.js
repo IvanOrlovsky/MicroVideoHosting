@@ -1,5 +1,3 @@
-import { metadata } from "../../metadata"
-
 export default function Home() {
   return (
     <div>
@@ -7,5 +5,3 @@ export default function Home() {
     </div>
   )
 }
-
-Home.metadata = metadata.home
