@@ -10,6 +10,7 @@ export async function GET(request) {
 
 export async function POST(request) {
     const { tagName } = await request.json();
-    console.log(tagName);
+    await sql`INSERT INTO tag (tag_name)
+    VALUES (${tagName});`;
     return new Response('', { status: 200 });
 }
