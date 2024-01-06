@@ -5,7 +5,7 @@ export default function Navbar() {
   return (
     <header className={styles.parent}>
       <div className={styles.nav_container}>
-        <span className={styles.site_name}>Микровидеохостинг</span>
+        <Link href="/" className={styles.site_name}>Микровидеохостинг</Link>
         <nav className={styles.nav_itself}>
           <Link href="/" className={styles.nav_links}>
               Главная
