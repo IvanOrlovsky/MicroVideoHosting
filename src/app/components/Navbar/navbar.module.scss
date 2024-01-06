@@ -2,6 +2,14 @@
     @apply w-screen p-5 bg-gray-700 text-yellow-400;
 }
 
+.site_name {
+    @apply text-3xl;
+}
+
+.nav_itself {
+    @apply flex space-x-6;
+}
+
 .nav_container {
     @apply container mx-auto flex justify-between items-center;
 }
