@@ -2,14 +2,6 @@
 
 import styles from './watch.module.scss'
 import { useState, useEffect } from 'react';
-// export const metadata = {
-//     title: 'Просмотр видео - Микровидеохостинг',
-//     description: 'Просмотр видео.',
-//     keywords: ['Видеохостинг', 'Микровидеохостинг', 'загрузка видео', 'теги', 'Просмотр видео'],
-//     applicationName: 'Microvideohosting',
-//     creator: 'Орловский Иван Сергеевич',
-//     publisher: 'Орловский Иван Сергеевич'
-//   };
 
 
 export default function Watch({ params }) {
@@ -19,7 +11,6 @@ export default function Watch({ params }) {
     const fetchVideoData = async (id) => {
         const response = await fetch(`/api/videos/${id}`, { method:  'GET' });  
         const video_info = await response.json();
-        setVideo_info(video_info);
     }
 
     useEffect(() => {
@@ -27,12 +18,20 @@ export default function Watch({ params }) {
     }, []);
 
     return (
-        <div>
+        <div className={styles.video_area}>
             {video_info[0] && (
-                    <video src={video_info[0].file_url} controls>
+                    <video src={video_info[0].file_url} controls autoPlay muted >
                         Ваш браузер не поддерживает тег video.
                     </video>
             )}
+            <div>
+                <h2 className={styles.video_title}>
+                    {video_info[0] && video_info[0].title}
+                </h2>
+                <p className={styles.video_disc}>
+                    {video_info[0] && video_info[0].description}
+                </p>
+            </div>
         </div>
     )
   }
