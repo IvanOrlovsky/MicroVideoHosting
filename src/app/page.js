@@ -10,7 +10,7 @@ export const metadata = {
   publisher: 'Орловский Иван Сергеевич'
 };
 
-export default function Home() {
+export default async function Home() {
 
   return (
       <div className={styles.video_grid_bg}>

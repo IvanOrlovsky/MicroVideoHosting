@@ -10,8 +10,9 @@ export default function VideoGrid({ id }) {
 
     const fetchVideos = async () => {
         const api_route = id === undefined ? '/api/videos' : `/api/related/${id}`;
-        const response = await fetch(api_route, { method:  'GET' });  
+        const response = await fetch(api_route, { method:  'GET', cache: 'no-store' });  
         const videos = await response.json();
+        
         setVideos(videos);
     }
 

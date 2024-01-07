@@ -4,6 +4,7 @@ import styles from './watch.module.scss'
 import { useState, useEffect } from 'react';
 import Tag from '@/app/components/Tag/tag';
 
+export const dynamic = 'force-dynamic';
 
 export default function Watch({ params }) {
 
