@@ -39,7 +39,7 @@ export default function Tags() {
                                 key={tags.tag_id}
                                 className={styles.single_tag}
                             >
-                                <Tag name={tags.tag_name} path={`/related/${tags.tag_name}`}/>
+                                <Tag name={tags.tag_name} path={`/related/${tags.tag_id}/${tags.tag_name}`}/>
                             </div>
                         ))}
                     </div>

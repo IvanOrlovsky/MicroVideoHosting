@@ -4,12 +4,13 @@ import styles from './videogrid.module.scss';
 import { useState, useEffect } from 'react';
 import VideoCard from '../VideoCard/VideoCard';
 
-export default function VideoGrid() {
+export default function VideoGrid({ id }) {
     
     const [videos, setVideos] = useState([]);
 
     const fetchVideos = async () => {
-        const response = await fetch('/api/videos', { method:  'GET' });  
+        const api_route = id === undefined ? '/api/videos' : `/api/related/${id}`;
+        const response = await fetch(api_route, { method:  'GET' });  
         const videos = await response.json();
         setVideos(videos);
     }

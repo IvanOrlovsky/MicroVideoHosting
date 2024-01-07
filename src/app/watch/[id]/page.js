@@ -49,7 +49,7 @@ export default function Watch({ params }) {
                             key={tag.tag_id}
                             className={styles.single_tag}
                         >
-                            <Tag name={tag.tag_name} path={`/related/${tag.tag_name}`}/>
+                            <Tag name={tag.tag_name} path={`/related/${tag.tag_id}/${tag.tag_name}`}/>
                         </div>
                     ))}
             </div>
