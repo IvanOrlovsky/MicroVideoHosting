@@ -11,6 +11,7 @@ export default function Watch({ params }) {
     const fetchVideoData = async (id) => {
         const response = await fetch(`/api/videos/${id}`, { method:  'GET' });  
         const video_info = await response.json();
+        setVideo_info(video_info);
     }
 
     useEffect(() => {
