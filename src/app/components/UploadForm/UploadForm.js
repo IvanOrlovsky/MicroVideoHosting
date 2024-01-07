@@ -60,7 +60,6 @@ export default function UploadForm() {
                         {tags.map((tag) => (
                                                 <li
                                                     key={tag.tag_id}
-                                                    // className={`p-2 rounded }`}
                                                     className={`rounded-lg text-center font-bold cursor-pointer ${selectedItems.includes(tag.tag_id) ? 'bg-yellow-700 ' : 'bg-yellow-400'}`}
                                                     onClick={() => handleToggleSelection(tag.tag_id)}
                                                 >
