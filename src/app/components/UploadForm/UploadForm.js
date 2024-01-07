@@ -41,9 +41,12 @@ export default function UploadForm() {
                 <ul className={styles.form_content}>
                     <li className="mb-4">
                         <input
-                        type="text"
-                        placeholder="Название видео"
-                        className={styles.input_text}
+                            type="text"
+                            placeholder="Название видео"
+                            className={styles.input_text}
+                            pattern="^[a-zA-Z][a-zA-Z0-9_-]{4,254}$"
+                            title="Название видео должно начинаться с буквы в любом регистре и быть по длине от 5 до 255 символов."
+                            required
                         />
                     </li>
                     <li className="mb-4">
@@ -69,7 +72,12 @@ export default function UploadForm() {
 
                         </ul>
                     </div>
-                    <input type="file" accept="video/*" className={styles.upload}/>
+                    <input 
+                        type="file" 
+                        accept="video/*"
+                        className={styles.upload} 
+                        required
+                    />
                     <button type="submit" className={styles.video_submit}>Загрузить</button>
                 </ul>
                 

@@ -22,6 +22,9 @@ export default function TagForm ({ onSubmit, onCancel }) {
         value={tagName}
         onChange={(e) => setTagName(e.target.value)}
         className="p-2 m-2"
+        pattern="^.{2,40}$"
+        title="Название тега должно быть от 2 до 40 символов"
+        required
       />
       <button type="submit" className={styles.tag_submit}>Добавить</button>
       <button type="reset" className={styles.tag_cancel}>Отмена</button>
