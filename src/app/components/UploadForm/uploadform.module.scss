@@ -21,3 +21,7 @@
 .video_submit {
     @apply p-2 m-2 bg-blue-500 text-white hover:bg-blue-800 transition duration-300;
 }
+
+.upload {
+    @apply appearance-none bg-transparent text-blue-500 mr-2 py-1 px-2 leading-tight focus:outline-none;
+}

@@ -40,7 +40,7 @@ export default function Tags() {
                                 tags.tag_name.length > 10 ? "col-span-2" : "col-span-1"
                                 }`}
                             >
-                                <Tag name={tags.tag_name}/>
+                                <Tag name={tags.tag_name} path={`/related/${tags.tag_name}`}/>
                             </div>
                         ))}
                     </div>
