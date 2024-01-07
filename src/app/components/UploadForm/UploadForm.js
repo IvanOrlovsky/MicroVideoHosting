@@ -32,14 +32,28 @@ export default function UploadForm() {
       };
       
 
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async (e) => {
         e.preventDefault();
+
+        const formData = new FormData();
+        formData.set('title', title);
+        formData.set('description', description);
+        formData.set('selectedItems', JSON.stringify(selectedItems));
+        formData.set('file', file);
+
+        await fetch('/api/uploads', { method:  'POST', 
+                                    body: formData}); 
         
+        setTitle('');
+        setDescription('');
+        setSelectedItems([]);
+        setFile(null);
+        setTags([]);
     }
 
     return (
         <div className={styles.parent}>
-            <form onSubmit={handleFormSubmit} className={styles.form}>
+            <form onSubmit={handleFormSubmit} encType="multipart/form-data" className={styles.form}>
                 <h1 className={styles.title}>
                     Загрузка нового видео
                 </h1>
@@ -72,7 +86,7 @@ export default function UploadForm() {
                         {tags.map((tag) => (
                                                 <li
                                                     key={tag.tag_id}
-                                                    className={`rounded-lg text-center font-bold cursor-pointer ${selectedItems.includes(tag.tag_id) ? 'bg-yellow-700 ' : 'bg-yellow-400'}`}
+                                                    className={`rounded-lg text-center font-bold cursor-pointer ${selectedItems.includes(tag.tag_id) ? 'bg-yellow-400 ' : 'bg-gray-600'}`}
                                                     onClick={() => handleToggleSelection(tag.tag_id)}
                                                 >
                                                     <Tag name={tag.tag_name}/>
@@ -83,8 +97,7 @@ export default function UploadForm() {
                     </div>
                     <input 
                         type="file" 
-                        value={file}
-                        onChange={(e) => setFile(e.target.value)}
+                        onChange={(e) => setFile(e.target.files?.[0])}
                         accept="video/*"
                         className={styles.upload} 
                         required
