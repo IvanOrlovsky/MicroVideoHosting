@@ -32,9 +32,14 @@ export default function UploadForm() {
       };
       
 
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        
+    }
+
     return (
         <div className={styles.parent}>
-            <form className={styles.form}>
+            <form onSubmit={handleFormSubmit} className={styles.form}>
                 <h1 className={styles.title}>
                     Загрузка нового видео
                 </h1>
@@ -42,6 +47,8 @@ export default function UploadForm() {
                     <li className="mb-4">
                         <input
                             type="text"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
                             placeholder="Название видео"
                             className={styles.input_text}
                             pattern="^[a-zA-Z][a-zA-Z0-9_-]{4,254}$"
@@ -51,6 +58,8 @@ export default function UploadForm() {
                     </li>
                     <li className="mb-4">
                         <textarea
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
                         placeholder="Описание видео"
                         className={styles.input_text}
                         />
@@ -74,6 +83,8 @@ export default function UploadForm() {
                     </div>
                     <input 
                         type="file" 
+                        value={file}
+                        onChange={(e) => setFile(e.target.value)}
                         accept="video/*"
                         className={styles.upload} 
                         required
