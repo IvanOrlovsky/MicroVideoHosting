@@ -9,3 +9,11 @@
 .video_disc {
     @apply text-xl text-slate-400;
 }
+
+.all_tegs_grid {
+    @apply grid grid-cols-3 gap-4;
+}
+
+.single_tag {
+    @apply p-2 rounded;
+}
