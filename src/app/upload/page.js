@@ -1,8 +1,8 @@
-import UploadWin from "../components/UploadWin/UploadWin"
+import UploadForm from "../components/UploadForm/UploadForm"
 
 export default function Upload() {
   return (
-    <UploadWin />
+    <UploadForm />
   )
 }
 

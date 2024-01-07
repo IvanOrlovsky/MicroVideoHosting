@@ -6,7 +6,7 @@ export const metadata = {
     keywords: ['Теги', 'видео', 'добавление тегов', 'просмотр тегов'],
     applicationName: 'Microvideohosting',
     creator: 'Орловский Иван Сергеевич',
-    publisher: 'Sebastian Markbåge'
+    publisher: 'Орловский Иван Сергеевич'
 };
 
 export default Tags;

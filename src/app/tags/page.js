@@ -46,7 +46,7 @@ export default function Tags() {
                     </div>
 
                     <div className="flex flex-col items-center m-5">
-                        <button onClick={() => setShowForm(true)} className="text-white p-2 bg-blue-500 ">Добавить тег</button>
+                        <button onClick={() => setShowForm(true)} className="text-white p-2 bg-blue-500 hover:bg-blue-800 transition duration-300">Добавить тег</button>
                     </div>
 
                     {showForm && (

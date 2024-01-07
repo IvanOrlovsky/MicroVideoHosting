@@ -1,0 +1,23 @@
+.parent {
+    @apply bg-gray-800 m-40 p-5 flex flex-row justify-center;
+}
+
+.form {
+    @apply p-8 rounded shadow-md;
+}
+
+.form_content {
+    @apply list-none p-0 flex flex-col justify-center
+}
+
+.title {
+    @apply text-center font-bold text-3xl text-yellow-500 p-5;
+}
+
+.input_text {
+    @apply w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500;
+}
+
+.video_submit {
+    @apply p-2 m-2 bg-blue-500 text-white hover:bg-blue-800 transition duration-300;
+}
