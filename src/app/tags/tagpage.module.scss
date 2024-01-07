@@ -1,0 +1,23 @@
+.all_tegs {
+    @apply bg-gray-800 m-40 p-5;
+}
+
+.all_tegs_title {
+    @apply text-center font-bold text-3xl text-yellow-500 p-5;
+}
+
+.all_tegs_grid {
+    @apply grid grid-cols-3 gap-4;
+}
+
+.single_tag {
+    @apply p-2 rounded;
+}
+
+.add_btn_flex {
+    @apply flex flex-col items-center m-5; 
+}
+
+.add_btn {
+    @apply text-white p-2 bg-blue-500 hover:bg-blue-800 transition duration-300
+}

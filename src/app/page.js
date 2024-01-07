@@ -1,5 +1,5 @@
 import VideoGrid from "./components/VideoGrid/VideoGrid";
-
+import styles from "./homepage.module.scss"
 
 export const metadata = {
   title: 'Главная страница - Микровидеохостинг',
@@ -13,8 +13,8 @@ export const metadata = {
 export default function Home() {
 
   return (
-      <div className="bg-gray-800 m-40 p-5">
-        <h1 className="text-center font-bold text-3xl text-yellow-500 p-5">Последние видео</h1>
+      <div className={styles.video_grid_bg}>
+        <h1 className={styles.recent_videos_title}>Последние видео</h1>
         <VideoGrid />
       </div>
   )
