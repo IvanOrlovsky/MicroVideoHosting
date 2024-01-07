@@ -7,7 +7,11 @@ import VideoCard from '../VideoCard/VideoCard';
 export default function VideoGrid({ id }) {
     
     const [videos, setVideos] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [videosPerPage] = useState(6);
+    const [totalVideos, setTotalVideos] = useState(0);
 
+    
     const fetchVideos = async () => {
         const api_route = id === undefined ? '/api/videos' : `/api/related/${id}`;
         const response = await fetch(api_route, { method:  'GET', cache: 'no-store' });  
