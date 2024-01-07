@@ -14,6 +14,14 @@
     @apply text-center font-bold text-3xl text-yellow-500 p-5;
 }
 
+.sub_title {
+    @apply text-center font-bold text-xl text-yellow-500 py-2;
+}
+
+.tag_select {
+    @apply bg-gray-700 p-2 my-3 rounded-md; 
+}
+
 .input_text {
     @apply w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500;
 }

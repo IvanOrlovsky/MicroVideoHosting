@@ -1,12 +1,36 @@
 import styles from "./uploadform.module.scss"
+import Tag from "../Tag/tag";
 import { useState, useEffect } from "react";
 
 export default function UploadForm() {
-
+    
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [selectedItems, setSelectedItems] = useState([]);
     const [file, setFile] = useState(null);
+    const [tags, setTags] = useState([]);
+
+    const fetchTags = async () => {
+        const response = await fetch('/api/tags', { method:  'GET' }); 
+        const tags = await response.json() 
+        setTags(tags)
+    };
+
+    useEffect(() => {
+        fetchTags();
+    }, []);
+
+
+    const handleToggleSelection = (item) => {
+        setSelectedItems((prevSelectedItems) => {
+          if (prevSelectedItems.includes(item)) {
+            return prevSelectedItems.filter((selectedItem) => selectedItem !== item);
+          } else {
+            return [...prevSelectedItems, item];
+          }
+        });
+      };
+      
 
     return (
         <div className={styles.parent}>
@@ -28,6 +52,24 @@ export default function UploadForm() {
                         className={styles.input_text}
                         />
                     </li>
+                    <div className={styles.tag_select}> 
+                        <h2 className={styles.sub_title}>
+                            Выберите подходящие теги:
+                        </h2>
+                        <ul className="grid grid-cols-3 gap-4"> 
+                        {tags.map((tag) => (
+                                                <li
+                                                    key={tag.tag_id}
+                                                    // className={`p-2 rounded }`}
+                                                    className={`rounded-lg text-center font-bold cursor-pointer ${selectedItems.includes(tag.tag_id) ? 'bg-yellow-700 ' : 'bg-yellow-400'}`}
+                                                    onClick={() => handleToggleSelection(tag.tag_id)}
+                                                >
+                                                    <Tag name={tag.tag_name}/>
+                                                </li>
+                                            ))}
+
+                        </ul>
+                    </div>
                     <input type="file" accept="video/*" className={styles.upload}/>
                     <button type="submit" className={styles.video_submit}>Загрузить</button>
                 </ul>

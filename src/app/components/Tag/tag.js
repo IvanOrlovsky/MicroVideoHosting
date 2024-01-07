@@ -3,9 +3,8 @@ import Link from 'next/link';
 
 export default function Tag(props) {
     const { name, path} = props;
-    const tag = <div className={styles.tag_bg}>   
-                    <span className={styles.tag_name}>{name}</span>
-                </div>
 
-    return (path === '') ? {tag} : <Link href={path}>{tag}</Link>
+    const tag = <div className={(path !== undefined) ? styles.link_tag : ''}>{name}</div>
+
+    return (path == undefined) ? tag : <Link href={path}>{tag}</Link>
 }
