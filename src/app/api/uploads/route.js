@@ -1,6 +1,6 @@
 import { sql } from "@vercel/postgres";
 import { put } from '@vercel/blob';
-
+export const fetchCache = 'force-no-store';
 export async function POST(request) {
 
     const form = await request.formData();
